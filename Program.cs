@@ -5,24 +5,34 @@ namespace Park
 {
     public class Program
     {
+          public static List<string> ViewAnimals = new List<string>(0);
+          // public static Dictionary<string, string> animalDictionary = new Dictionary<string, string>();
         static void Main()
         {
-          Console.WriteLine("What would you like to do? (Add/View/Remove");
+          Console.WriteLine("What would you like to do? (Add/View)");
           string input = Console.ReadLine();
 
-          List<Animals> ViewAnimals = new List<Animals>(0);
+
 
           if (input.ToUpper() == "ADD")
           {
-            string species = Console.ReadLine();
+            Console.WriteLine("Name:");
             string name = Console.ReadLine();
-            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Species:");
+            string species = Console.ReadLine();
+            Console.WriteLine("Age:");
+            string age = Console.ReadLine();
+            Console.WriteLine("Conservation status:");
             string endangered = Console.ReadLine();
 
             
             Animals animal = new Animals(species, name, age, endangered);
 
-            ViewAnimals.Add(animal);
+            string animalInfo = "Name: " + animal.GetName() + "\nSpecies: " + animal.GetSpecies() + "\nAge: " + animal.GetAge() + "\nConservation status: " + animal.GetStatus();
+
+
+
+            ViewAnimals.Add(animalInfo);
 
             Main();
           }
@@ -34,12 +44,12 @@ namespace Park
               Console.WriteLine("\n Nothing matches your search criteria please don't be so picky");
               Main();
             }
-            // display all the animals
-            Main();
-          }
-          else if (input.ToUpper() == "REMOVE")
+            
+            foreach(string animal in ViewAnimals)
           {
-
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine(animal);
+          }
             Main();
           }
           else 

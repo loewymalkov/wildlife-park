@@ -6,12 +6,11 @@ namespace Park
     {
       private string _species;
       private string _name;
-      private int _age;
+      private string _age;
       private string _endangered;
 
-      public int AnimalCount;
 
-      public Animals(string species, string name, int age, string endangered)
+      public Animals(string species, string name, string age, string endangered)
       {
         _species = species;
         _name = name;
@@ -28,7 +27,7 @@ namespace Park
       {
         return _name;
       }
-      public int GetAge()
+      public string GetAge()
       {
         return _age;
       }
